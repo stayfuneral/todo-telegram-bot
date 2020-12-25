@@ -6,7 +6,6 @@ namespace App;
 
 use App\Helpers\HelperTrait;
 use App\Model\NotificationSettings;
-use App\Model\Tasks;
 use Exception;
 use Telegram\Bot\Api;
 
