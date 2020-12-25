@@ -70,8 +70,6 @@ class Bot
         $callback = [$callbackData[0], $callbackData[1]];
         $taskId = (int) $callbackData[2];
 
-        $file = 'callback_'.$taskId.'_'.$this->message->messageId;
-
         if(is_callable($callbackData[0], $callbackData[1])) {
 
             $completeTask = call_user_func($callback, $taskId);
@@ -82,21 +80,16 @@ class Bot
             $message = $completeTask['comment'];
 
             try {
-                $send = $this->telegram->sendMessage([
+                return $this->telegram->sendMessage([
                     'chat_id' => $this->chat->id,
                     'text' => $message
                 ]);
 
-                $logData['send_message'] = $send;
-
-
             } catch (TelegramSDKException $e) {
-                $logData['send_message'] = $e->getMessage();
+                return $e->getMessage();
             }
 
         }
-
-        writeLog($file, $logData);
 
 
     }
@@ -105,8 +98,6 @@ class Bot
     {
         $userId = $this->user->id;
         $text = $this->message->text;
-
-        $logData = [];
 
 
         if($this->updates->callbackQuery) {
