@@ -42,3 +42,16 @@ token.php
 define('TELEGRAM_BOT_API_TOKEN', 'токен_вашего_бота');
 ```
 
+### Установка вебхука
+
+```php
+
+use Telegram\Bot\Api;
+
+$telegram = new Api(TELEGRAM_BOT_API_TOKEN);
+
+$telegram->setWebhook([
+    'url' => 'https://адрес-сайта-где-лежит-данный-репозиторий/hook.php'
+]);
+
+```
