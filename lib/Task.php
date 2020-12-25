@@ -7,7 +7,6 @@ namespace App;
 use App\Exceptions\TaskException;
 use App\Helpers\BotHelper;
 use App\Helpers\HelperTrait;
-use App\Helpers\TaskHelper;
 use App\Model\Tasks;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Telegram\Bot\Api;
@@ -67,7 +66,6 @@ class Task
                     case 'user':
                         throw new TaskException("Parameter $key is not exists");
                 }
-
 
             }
         }
