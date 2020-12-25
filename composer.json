@@ -1,0 +1,19 @@
+{
+  "name": "ramapriya/todo-telegram-bot",
+  "description": "",
+  "authors": [
+    {
+      "name": "Ramapriya Doom (Roman)",
+      "email": "roman@bx24.store"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "App\\": "lib/"
+    }
+  },
+  "require": {
+    "irazasyed/telegram-bot-sdk": "^3.4",
+    "illuminate/database": "^8.20"
+  }
+}
